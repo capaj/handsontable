@@ -369,11 +369,11 @@ TextEditor.prototype.refreshDimensions = function(force = false) {
   const cellTopOffset = this.TD.offsetTop + firstRowOffset - verticalScrollPosition;
   const cellLeftOffset = this.TD.offsetLeft + firstColumnOffset - horizontalScrollPosition;
 
-  const width = innerWidth(this.TD) - 8;
+  const width = innerWidth(this.TD) - 2;
   const actualVerticalScrollbarWidth = hasVerticalScrollbar(scrollableContainerTop) ? scrollbarWidth : 0;
   const actualHorizontalScrollbarWidth = hasHorizontalScrollbar(scrollableContainerLeft) ? scrollbarWidth : 0;
   const maxWidth = this.instance.view.maximumVisibleElementWidth(cellLeftOffset) - 9 - actualVerticalScrollbarWidth;
-  const height = this.TD.scrollHeight + 1;
+  const height = this.TD.scrollHeight - 1;
   const maxHeight = Math.max(this.instance.view.maximumVisibleElementHeight(cellTopOffset) - actualHorizontalScrollbarWidth, 23);
 
   const cellComputedStyle = getComputedStyle(this.TD);
