@@ -23,8 +23,8 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
- * Version: 6.2.3
- * Release date: 19/12/2018 (built at 08/07/2019 09:27:08)
+ * Version: 6.2.4
+ * Release date: 19/12/2018 (built at 12/08/2019 19:24:25)
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -14042,7 +14042,7 @@ TextEditor.prototype.refreshDimensions = function () {
   var actualVerticalScrollbarWidth = (0, _element.hasVerticalScrollbar)(scrollableContainerTop) ? scrollbarWidth : 0;
   var actualHorizontalScrollbarWidth = (0, _element.hasHorizontalScrollbar)(scrollableContainerLeft) ? scrollbarWidth : 0;
   var maxWidth = this.instance.view.maximumVisibleElementWidth(cellLeftOffset) - 9 - actualVerticalScrollbarWidth;
-  var height = this.TD.scrollHeight - 1;
+  var height = this.TD.scrollHeight - 5;
   var maxHeight = Math.max(this.instance.view.maximumVisibleElementHeight(cellTopOffset) - actualHorizontalScrollbarWidth, 23);
   var cellComputedStyle = (0, _element.getComputedStyle)(this.TD);
   this.TEXTAREA.style.fontSize = cellComputedStyle.fontSize;
@@ -35815,9 +35815,9 @@ Handsontable.DefaultSettings = _defaultSettings.default;
 Handsontable.EventManager = _eventManager.default;
 Handsontable._getListenersCounter = _eventManager.getListenersCounter; // For MemoryLeak tests
 
-Handsontable.buildDate = "08/07/2019 09:27:08";
-Handsontable.packageName = "handsontable";
-Handsontable.version = "6.2.3";
+Handsontable.buildDate = "12/08/2019 19:24:25";
+Handsontable.packageName = "@capaj/handsontable";
+Handsontable.version = "6.2.4";
 var baseVersion = "";
 
 if (baseVersion) {

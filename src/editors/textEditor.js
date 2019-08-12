@@ -373,7 +373,7 @@ TextEditor.prototype.refreshDimensions = function(force = false) {
   const actualVerticalScrollbarWidth = hasVerticalScrollbar(scrollableContainerTop) ? scrollbarWidth : 0;
   const actualHorizontalScrollbarWidth = hasHorizontalScrollbar(scrollableContainerLeft) ? scrollbarWidth : 0;
   const maxWidth = this.instance.view.maximumVisibleElementWidth(cellLeftOffset) - 9 - actualVerticalScrollbarWidth;
-  const height = this.TD.scrollHeight - 1;
+  const height = this.TD.scrollHeight - 5;
   const maxHeight = Math.max(this.instance.view.maximumVisibleElementHeight(cellTopOffset) - actualHorizontalScrollbarWidth, 23);
 
   const cellComputedStyle = getComputedStyle(this.TD);
