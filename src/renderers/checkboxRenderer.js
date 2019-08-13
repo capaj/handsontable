@@ -28,7 +28,6 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties, .
 
   let input = createInput();
   const labelOptions = cellProperties.label;
-  let badValue = false;
 
   if (typeof cellProperties.checkedTemplate === 'undefined') {
     cellProperties.checkedTemplate = true;
@@ -49,15 +48,13 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties, .
     addClass(input, 'noValue');
 
   } else {
-    input.style.display = 'none';
     addClass(input, BAD_VALUE_CLASS);
-    badValue = true;
   }
 
   input.setAttribute('data-row', row);
   input.setAttribute('data-col', col);
 
-  if (!badValue && labelOptions) {
+  if (labelOptions) {
     let labelText = '';
 
     if (labelOptions.value) {
@@ -77,10 +74,6 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties, .
   }
 
   TD.appendChild(input);
-
-  if (badValue) {
-    TD.appendChild(document.createTextNode('#bad-value#'));
-  }
 
   if (!isListeningKeyDownEvent.has(instance)) {
     isListeningKeyDownEvent.set(instance, true);
