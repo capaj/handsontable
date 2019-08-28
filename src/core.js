@@ -2248,17 +2248,19 @@ export default function Core(rootElement, userSettings, rootInstanceSymbol = fal
    */
   this.removeCellMeta = function(row, column, key) {
     const [physicalRow, physicalColumn] = recordTranslator.toPhysical(row, column);
-    let cachedValue = priv.cellSettings[physicalRow][physicalColumn][key];
+    const rowSettings = priv.cellSettings[physicalRow];
 
-    const hookResult = instance.runHooks('beforeRemoveCellMeta', row, column, key, cachedValue);
+    if (rowSettings) {
+      let cachedValue = rowSettings[physicalColumn][key];
 
-    if (hookResult !== false) {
-      delete priv.cellSettings[physicalRow][physicalColumn][key];
+      const hookResult = instance.runHooks('beforeRemoveCellMeta', row, column, key, cachedValue);
+      if (hookResult !== false) {
+        delete priv.cellSettings[physicalRow][physicalColumn][key];
 
-      instance.runHooks('afterRemoveCellMeta', row, column, key, cachedValue);
+        instance.runHooks('afterRemoveCellMeta', row, column, key, cachedValue);
+      }
+      cachedValue = null;
     }
-
-    cachedValue = null;
   };
 
   /**
